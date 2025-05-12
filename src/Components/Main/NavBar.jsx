@@ -24,7 +24,7 @@ function NavBar(Param) {
         <motion.button
           onClick={stop_game}
           className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
-          initial={{ x: 10000, opacity: 0 }}
+          initial={{ x: 350, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
