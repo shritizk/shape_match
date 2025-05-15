@@ -13,6 +13,9 @@ function Start_box(Param){
     // ref to the container 
     const constraintRef = useRef(null);
 
+    if(!Param){
+      return <div>Something went wrong !!</div>
+    }
     
     if (!Param.game){
       return  <div className="flex justify-center items-center mt-10 pt-20">
@@ -21,14 +24,10 @@ function Start_box(Param){
     }else{
       return  <div className="h-screen w-screen relative flex" ref={constraintRef}>
         <div className="w-1/2  flex items-center justify-center "> 
-
           <DragItem></DragItem>
         </div>
         <div className="bg-amber-500  w-1/2 border-l h-screen grid grid-cols-2 grid-rows-2  ">
-          <div className="bg-red-600"></div>
-          <div className="bg--600"></div>
-          <div className="bg-yellow-600"></div>
-          <div className="bg-green-600"></div>
+          
         </div>
       </div>
     }
