@@ -26,11 +26,13 @@ function generateRandomComponentClasses() {
         className = `${bgClass} w-24 h-12`;
         break;
       case 'triangle':
-        className = `triangle-${color}-200`; // Define this in CSS
+        className = `w-0 h-0 
+          border-l-[32px] border-r-[32px] border-b-[48px]
+          border-l-transparent border-r-transparent border-b-${color}-200`;
         break;
     }
 
-    classes.push(className);
+    classes.push({className : className, shape : shape});
   }
 
   return classes;

@@ -1,5 +1,6 @@
 import {useDragControls , motion } from "motion/react"
 import { useRef } from "react";
+import MainGame from "../Main/MainGame";
 
 function Start_box(Param){
 
@@ -20,6 +21,7 @@ function Start_box(Param){
     
     if (!Param.game){
       return  <div className="flex justify-center items-center mt-10 pt-20">
+        
        <motion.button 
         onClick={gamestate}
         initial={{opacity: 0 , scale: 0} }
@@ -28,7 +30,7 @@ function Start_box(Param){
        >Start</motion.button>
       </div>
     }else{
-      return  <MainGame></MainGame>
+      return <MainGame></MainGame>
     }
   }
 export default Start_box

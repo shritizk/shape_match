@@ -1,6 +1,6 @@
 import { useState } from "react"
-import NavBar from "./Components/Main/NavBar"
-import Start_box from "./Components/Main/StartBox";
+import NavBar from "./Components/NavBar/NavBar"
+import Start_box from "./Components/Startscreen/StartBox";
 
 function App() {
   
