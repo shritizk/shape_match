@@ -1,10 +1,5 @@
 import {useDragControls , motion } from "motion/react"
 import { useRef } from "react";
-import MainGame from "../Maingame/MainGame";
-
-
-
-
 
 function Start_box(Param){
 
