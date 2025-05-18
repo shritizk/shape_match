@@ -1,14 +1,20 @@
-import { DragControls, motion, useDragControls } from "motion/react"
-import { useRef, useState } from "react";
-import MotionButton from "./Motion/MotioButton";
-import DragItem from "./Motion/DragItem";
+import {useDragControls , motion } from "motion/react"
+import { useRef } from "react";
+import MainGame from "../Maingame/MainGame";
+
+
+
 
 
 function Start_box(Param){
 
+    // set game 
+    function gamestate(){
+      return Param.setGame(true)
+    };
+
     // drag control 
     const controls = useDragControls();
-
 
     // ref to the container 
     const constraintRef = useRef(null);
@@ -19,17 +25,15 @@ function Start_box(Param){
     
     if (!Param.game){
       return  <div className="flex justify-center items-center mt-10 pt-20">
-       <MotionButton setGame={Param.setGame}  ></MotionButton>
+       <motion.button 
+        onClick={gamestate}
+        initial={{opacity: 0 , scale: 0} }
+        animate={{opacity: 1 , scale: 1 }}
+        className="rounded-full bg-amber-200 shadow-2xl w-50 h-50"
+       >Start</motion.button>
       </div>
     }else{
-      return  <div className="h-screen w-screen relative flex" ref={constraintRef}>
-        <div className="w-1/2  flex items-center justify-center "> 
-          <DragItem></DragItem>
-        </div>
-        <div className="bg-amber-500  w-1/2 border-l h-screen grid grid-cols-2 grid-rows-2  ">
-          
-        </div>
-      </div>
+      return  <MainGame></MainGame>
     }
   }
 export default Start_box
