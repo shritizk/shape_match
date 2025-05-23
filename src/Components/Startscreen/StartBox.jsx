@@ -30,7 +30,7 @@ function Start_box(Param){
        >Start</motion.button>
       </div>
     }else{
-      return <MainGame></MainGame>
+      return  <MainGame></MainGame>
     }
   }
 export default Start_box
