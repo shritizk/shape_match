@@ -1,19 +1,43 @@
-import {useDragControls , motion } from "motion/react"
-import { useRef } from "react";
+import { motion } from "motion/react"
+import {  useState } from "react";
 import MainGame from "../Main/MainGame";
 
 function Start_box(Param){
 
+
+    // states
+    const [point,setPoint] = useState();
+    const [cycle , setCycle] = useState();
+    const [val , setVal] = useState(); 
+    const [king , setKing] = useState();
+
+    // redo the 50 based on cycle
+    useEffect(async()=>{
+
+        let res = await axios.get(randomClass);
+        const random_ll = res.data; 
+        setKing(setVal(random_ll.value))
+        
+    },[Param.cycle])
+    
+    // change king based on points
+    useEffect(()=>{
+
+      if(val.next == null){
+        setCycle(cycle+=1);
+      }else{
+        setVal(king.next);
+        setKing(val.value); 
+      };
+
+    },[Param.point]);
+
     // set game 
     function gamestate(){
+      setPoint(0);
+      setCycle(1);
       return Param.setGame(true)
     };
-
-    // drag control 
-    const controls = useDragControls();
-
-    // ref to the container 
-    const constraintRef = useRef(null);
 
     if(!Param){
       return <div>Something went wrong !!</div>
@@ -30,7 +54,7 @@ function Start_box(Param){
        >Start</motion.button>
       </div>
     }else{
-      return  <MainGame></MainGame>
+      return  <MainGame setCycle setPoint king ></MainGame>
     }
   }
 export default Start_box

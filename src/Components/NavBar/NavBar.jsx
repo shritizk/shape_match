@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 function NavBar(Param) {
-  function stop_game() {
-    return Param.setGame(false);
-  }
 
-  function reset_game() {
-    console.log("reset!!");
-  }
+ 
+
+  function stop_game() {
+    Param.setPoint(0);
+    Param.setCycle(0);
+    return Param.setGame(false);
+  };
 
   if (!Param) {
     return <div>Something went wrong</div>;
@@ -29,15 +31,6 @@ function NavBar(Param) {
           transition={{ duration: 1 }}
         >
           Exit
-        </motion.button>
-        <motion.button
-          onClick={reset_game}
-          className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset"
-          initial={{ x: 10000, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          Reset
         </motion.button>
       </div>
     );
